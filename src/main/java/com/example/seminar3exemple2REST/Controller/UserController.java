@@ -18,7 +18,7 @@ public class UserController {
     @Autowired
     private RegistrationService service;
 
-    @GetMapping
+    @GetMapping("/user")
     public List<User> userList(){ return service.getDataProcessingService().getRepository().getUsers();
     }
 

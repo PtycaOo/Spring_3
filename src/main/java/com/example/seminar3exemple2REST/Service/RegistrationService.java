@@ -13,4 +13,10 @@ public class RegistrationService {
     public DataProcessingService getDataProcessingService() {
         return dataProcessingService;
     }
+
+    public RegistrationService(UserService userService, DataProcessingService dataProcessingService, NotificationService notificationService) {
+        this.userService = userService;
+        this.dataProcessingService = dataProcessingService;
+        this.notificationService = notificationService;
+    }
 }
