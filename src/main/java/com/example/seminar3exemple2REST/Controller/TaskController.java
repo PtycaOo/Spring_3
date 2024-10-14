@@ -4,6 +4,7 @@ import com.example.seminar3exemple2REST.Domain.User;
 import com.example.seminar3exemple2REST.Service.DataProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,14 +31,15 @@ public class TaskController {
         return service.sortUsersByAge(service.getRepository().getUsers());
     }
 
-//    @GetMapping("/filter")
-//    public List<User> filterUserByAge(int age){
-//        return service.filterUsersByAge(service.getRepository().getUsers(), age);
-//    }
-//    @GetMapping("/calculate")
-//    public double calculateAverageAge(){
-//        return service.calculateAverageAge(service.getRepository().getUsers());
-//    }
+    @GetMapping("/filter/{age}")
+    public List<User> filterUserByAge(@PathVariable("age") int age){
+        return service.filterUsersByAge(service.getRepository().getUsers(), age);
+    }
+
+    @GetMapping("/calc")
+    public double calculateAverageAge(){
+        return service.calculateAverageAge(service.getRepository().getUsers());
+    }
 
 
 }
