@@ -12,9 +12,6 @@ import java.util.stream.Collectors;
 @Service
 public class DataProcessingService {
 
-    public UserRepository getRepository() {
-        return repository;
-    }
 
     @Autowired
     private UserRepository repository;
@@ -41,4 +38,7 @@ public class DataProcessingService {
         repository.getUsers().add(user);
     }
 
+    public UserRepository getRepository() {
+        return repository;
+    }
 }
