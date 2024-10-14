@@ -22,7 +22,7 @@ public class UserController {
     public List<User> userList(){ return service.getDataProcessingService().getRepository().getUsers();
     }
 
-    @GetMapping
+    @GetMapping("/body")
     public String userAddFromBody(@RequestBody User user){
         service.getDataProcessingService().getRepository().getUsers().add(user);
         return "User add from body";
