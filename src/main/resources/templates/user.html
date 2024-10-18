@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>
+            UserList
+        </title>
+
+    </head>
+
+    <body>
+        <h1>
+            Users:
+        </h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+            <tr th:each="user : ${users}"></tr>
+            <td><a th:href="@{users/{id}(id=${user.id})}" th:text = "${user.name}"></a></td>
+            <td th:text = "${user.age}"></td>
+            <td th:text = "${user.email}"></td>
+        </table>
+    </body>
+
+
+</html>

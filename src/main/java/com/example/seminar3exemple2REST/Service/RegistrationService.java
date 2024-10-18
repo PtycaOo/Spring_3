@@ -1,9 +1,12 @@
 package com.example.seminar3exemple2REST.Service;
 
 import com.example.seminar3exemple2REST.Domain.User;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+@Getter
 @Service
 public class RegistrationService {
 
@@ -17,13 +20,10 @@ public class RegistrationService {
         this.notificationService = notificationService;
     }
 
-    public DataProcessingService getDataProcessingService() {
-        return dataProcessingService;
+    public void processRegistration(User user){
+        userService.createUser(user.getName(), user.getAge(), user.getEmail());
+
     }
 
-    public void processRegistration(String name, int age, String email){
-        User createUser = userService.createUser(name, age, email);
-        getDataProcessingService().addUser(createUser);
-        notificationService.notifyUser(createUser);
-    }
+
 }

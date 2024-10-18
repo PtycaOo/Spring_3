@@ -2,6 +2,7 @@ package com.example.seminar3exemple2REST.Service;
 
 import com.example.seminar3exemple2REST.Domain.User;
 import com.example.seminar3exemple2REST.Repository.UserRepository;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
 @Service
 public class DataProcessingService {
 
@@ -38,7 +40,8 @@ public class DataProcessingService {
         repository.getUsers().add(user);
     }
 
-    public UserRepository getRepository() {
+
+    public UserRepository repository() {
         return repository;
     }
 }
